@@ -8,7 +8,12 @@ spec:
     canary:
       steps:
       - setWeight: 20
-      - pause: {}
+      # - pause: {}
+      - analysis:
+          templates:
+          - templateName: random-fail
+          - templateName: always-pass
+            clusterScope: true
       - setWeight: 40
       - pause: {duration: 10}
       - setWeight: 60
