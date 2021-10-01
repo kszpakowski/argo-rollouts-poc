@@ -2,14 +2,16 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: rollouts-ingress
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
+  # annotations:
+    # nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   rules:
+  - host: rollouts.example.com
   - http:
       paths:
       - pathType: Prefix
-        path: /rollouts(/|$)(.*)
+        # path: /rollouts(/|$)(.*)
+        path: /
         backend:
           service:
             name: rollouts-demo
